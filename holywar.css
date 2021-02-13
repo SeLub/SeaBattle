@@ -1,0 +1,60 @@
+.h1 {
+  text-align: center;
+  color: chartreuse;
+}
+body {
+  background: black;
+}
+div#Message .alert {
+  text-align: center;
+}
+a,
+h1,
+h2,
+h3 {
+  color: wheat;
+}
+table {
+  border: 1px solid rgb(12, 4, 4);
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border: 1px solid rgb(12, 4, 4);
+}
+th {
+  text-align: center;
+  border: 1px solid rgb(12, 4, 4);
+}
+td {
+  text-align: center;
+  border: 1px solid rgb(12, 4, 4);
+}
+table.sea td {
+  border: 1px solid lightgreen;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: large;
+}
+.progress {
+  margin-top: 10px;
+}
+h1 {
+  color: yellow;
+}
+p {
+  color: white;
+}
+
+.media {
+  background-color: black;
+  padding: 10px;
+  color: white;
+  border-radius: 4px;
+}
+.media-body {
+  color: wheat;
+}
