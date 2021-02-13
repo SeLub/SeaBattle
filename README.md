@@ -2,6 +2,8 @@
 
 Famous Sea Battle Game for web-hosting.
 Used: JavaScript, HTML, CSS, Bootstrap 3, PHP.
+![Sea Battle Game](seabattle3.jpg?raw=true "Sea Battle v.3.02")
+
 
 Features:
 
