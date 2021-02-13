@@ -15,9 +15,13 @@ Game :
 - Adjustable number of each type of ship (in code)
 - Adjustable dimensions of board (in code)
 
+![Sea Battle Game](seabattle2.jpg?raw=true "Sea Battle v.3.02")
+
 Settings Tab
 - Enter Name - input Player Name to record in CSV score file (If Player inputs name on Settings Tab - stores results in CSV score file)
 - Show Enemy Ships - checkbox to show/hide positions of ships
+
+![Sea Battle Game](seabattle1.jpg?raw=true "Sea Battle v.3.02")
 
 Fasti Tab 
 - Show CSV file with Players Rating (Name, Score, Status)
