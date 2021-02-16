@@ -64,20 +64,20 @@
             </div>
             <div class="panel-footer">You can sea Enemy Positions and feel like Alexander the Great .</div>
           </div>
-      
+  <!--    
           <div class="panel panel-info">
             <div class="panel-heading">Battle Field Dimension</div>
             <div class="panel-body">Experimental (Under Development)</div>
             <div class="panel-footer">Select Battle Field Dimension</div>
           </div>
-
+-->
         </div>
       </div>
 
 
     <div id="menu2" class="tab-pane fade">
       <h3>Fasti Triumphales</h3>
-      <p>Welcome to Hall of Fame. To be in Fasci Name Yourself in Settings.</p>
+      <p>Welcome to Hall of Fame. To be in Fasci - Name Yourself in Settings. After Play - REFRESH Page to see changes.</p>
         
         
                         <div class="panel panel-success">
@@ -131,7 +131,7 @@ if (($handle = fopen("heroes.csv", "r")) !== FALSE) {
           <button type="button" class="btn btn-success">Lost <span class="badge" id="pigs_dead">0</span></button>                
           </div>
   
-          <div class="row" id="Statistic" style="height:20%">
+          <div class="row" id="Statistic">
           </div>
           <div class="panel panel-primary">
             <div class="panel-heading">Ruls</div>

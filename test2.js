@@ -248,7 +248,8 @@ function SaveGame(PlayerName){
     }
     
     var client = new HttpClient();
-    var req = 'http://nepra.by/holywar3/save.php?name=' + PlayerName + '&score=' + guesses + '&status=' + status;
+    var req = 'https://nepra.by/holywar3/save.php?name=' + PlayerName + '&score=' + guesses + '&status=' + status;
+    alert (req)
     client.get(req);
 
 }
