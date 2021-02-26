@@ -114,44 +114,49 @@ function ShipArea(ShipOrientation,number_of_decks){
 
 }
 
-function CheckShip(CoordinateY,CoordinateX,Number_Rows,Number_Cols){
+function CheckShip (CoordinateY,CoordinateX,Number_Rows,Number_Cols){
+
     this.y = CoordinateY;
     this.x = CoordinateX;
+    this.rows = Number_Rows;
+    this.cols = Number_Cols;
+    var sum = 0;
 
-    this.rows = y + Number_Rows;
-    this.cols = x + Number_Cols;
-    var IsAnyBodyHere = 0;
+    fromRows = this.y - 1;
+    toRows = this.y + this.rows - 1;
 
-    for (var i = this.y; i < this.rows; i++) {
-        for (var j = this.x; j < this.cols; j++) {
+    fromColumn = this.x - 1;
+    toColumn = this.x + this.cols -1;
+
+    if (this.y == 1){fromRows = 1;}
+    if (this.x == 1){fromColumn = 1;}
+    if (this.y == seaField.length - this.rows +2 ){toRows = this.y + this.rows - 2;}
+    if (this.x == seaField[0].length - this.cols +2 ){toColumn = this.x + this.cols - 2;}
+
+    for (let i=fromRows; i < toRows;i++){
+        for (let j=fromColumn; j < toColumn;j++){
             if (this.rows > seaField.length || this.cols > seaField[0].length)
-            {alert('Суммируем за пределом' + this.rows.toString() + ' '+ this.cols.toString());}else
-            {
-               if(seaField[i][j] == 1) { IsAnyBodyHere += 1;};  
-            }
+                { alert('Суммируем за пределом' + this.rows.toString() + ' '+ this.cols.toString()); }
+            else{ sum  = sum + seaField[i][j];}
         }
     }
-
-    return IsAnyBodyHere;
+    return sum;
 }
 
 function InsertShip(CoordinateY,CoordinateX,Number_Rows,Number_Cols){
     this.y = CoordinateY;
     this.x = CoordinateX;
+    this.rows = Number_Rows;
+    this.cols = Number_Cols;
 
-    this.rows = y + Number_Rows;
-    this.cols = x + Number_Cols;
-    for (var i = this.y + 1; i < (this.rows-1); i++) {
-        for (var j = this.x+1; j < (this.cols-1); j++) {
-            if (this.rows > seaField.length || this.cols > seaField[0].length)
-            {alert('Корабль не вмещается' + this.rows.toString() + ' '+ this.cols.toString());}else
-            {
-            seaField[i][j] = 1;  
+        for(let i=this.y; i<this.y+this.rows - 2;i++){
+            for(let j=this.x; j<this.x+this.cols - 2;j++){
+                if (this.rows > seaField.length || this.cols > seaField[0].length)
+                   {   alert('Корабль не вмещается' + this.rows.toString() + ' '+ this.cols.toString());}
+                else{seaField[i][j] = 1;}
             }
-  //          alert (i.toString() + ' ' + j.toString());          
         }
-    }
-return seaField;
+        return seaField;
 }
 
 function PlaceShip(Number_of_Decks){
@@ -162,9 +167,9 @@ var ShipOrientation = getRandom(2),
         NumberShipRows = ShipArea(ShipOrientation,this.palub).rows;
         NumberShipCols = ShipArea(ShipOrientation,this.palub).cols;
 
-        y = Math.floor(Math.random() * (seaField.length - NumberShipRows));
+        y = Math.floor(Math.random() * (seaField.length - NumberShipRows+2));
         if (y === 0) { y = 1; }
-        x = Math.floor(Math.random() * (seaField[0].length - NumberShipCols));
+        x = Math.floor(Math.random() * (seaField[0].length - NumberShipCols+2));
         if (x === 0) { x = 1; }
 
         controlSumShip = CheckShip(y,x,NumberShipRows,NumberShipCols);
@@ -248,7 +253,7 @@ function SaveGame(PlayerName){
     }
     
     var client = new HttpClient();
-    var req = 'https://nepra.by/holywar3/save.php?name=' + PlayerName + '&score=' + guesses + '&status=' + status;
+    var req = 'http://nepra.by/holywar302/save.php?name=' + PlayerName + '&score=' + guesses + '&status=' + status;
     alert (req)
     client.get(req);
 
@@ -261,9 +266,9 @@ function PlayGame(){
     document.getElementById("BattleField").innerHTML = seaFieldHTML;
     PlaceShip(5);        
     PlaceShip(4);
-    PlaceShip(3);
-    PlaceShip(2);  
-    PlaceShip(1);
+    PlaceShip(3);PlaceShip(3);
+    PlaceShip(2);PlaceShip(2);PlaceShip(2);
+    PlaceShip(1);PlaceShip(1);PlaceShip(1);PlaceShip(1);
     BattleField.showField(seaField);
     barStep = Math.round(100/ControlSum(seaField));
 
